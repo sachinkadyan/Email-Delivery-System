@@ -1,0 +1,21 @@
+
+	<nav class="navbar navbar-inverse navabr-fixed-top">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{%  url 'login' %}">{{ user.first_name }}</a>
+
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="{% url 'login' %}">Inbox</a></li>
+				<li><a href="{% url 'sendMail' %}">Compose</a></li>
+				<li><a href="{% url 'outbox' %}">Outbox</a></li>
+				<li><a href="{% url 'profile' %}">Statistics</a></li>
+				<li><a href="{% url 'logout' %}">Logout</a></li>
+			</ul>
+		</div>
+	</nav>

@@ -1,0 +1,27 @@
+{% extends "account/base.html" %}
+
+{% block content %}
+
+<div class="intro-block">
+	<div class="container">
+		<div class="col-xs-3">
+			
+		</div>
+		<div class="col-xs-6 dialog">
+			<h1>Email</h1>
+			<p class="lead">Stay in touch with your near and dear ones!</p>
+			<h2>Login Page</h2>
+			<p>New user? <a href="signup">Sign up here!</a></p>
+			<form method="post" action="/">
+			{% csrf_token %}
+			{{ form.as_p }}
+
+			<input type="submit" class="btn btn-primary" value="Login">
+
+			</form>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

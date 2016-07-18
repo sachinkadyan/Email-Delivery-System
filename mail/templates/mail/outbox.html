@@ -1,0 +1,36 @@
+{% extends "mail/base.html" %}
+
+{% block content %}
+<style type="text/css">
+	#outboxList {
+		padding-left: 0;
+	}
+
+	#outboxList li {
+		list-style-type: none;
+		padding: 5px 0 5px 0;
+	}
+</style>
+<div class="dialog">
+<h2>Sent messages</h2>
+<ul id="outboxList">
+	<li class="row">
+		<div class="col-xs-3">To</div>
+		<div class="col-xs-6">Subject</div>
+		<div class="col-xs-3">Date</div>
+	</li>
+
+	{% for item in messages %}
+	<li class="row"><a href="{% url 'read' item.message.messageID %}">
+		<div class="col-xs-3">{% for recepient in item.recepients %}
+			{{ recepient.username }} &nbsp;&nbsp;
+		{% endfor %}
+		</div>
+		<div class="col-xs-6">{{ item.message.subject }}</div>
+		<div class="col-xs-3">{{ item.message.timestamp }}</div>
+	</a></li>
+	{% endfor %}
+</ul>
+</div>
+
+{% endblock %}

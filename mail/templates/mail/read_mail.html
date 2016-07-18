@@ -1,0 +1,14 @@
+{% extends "mail/base.html" %}
+
+{% block content %}
+<div class="col-xs-12 dialog">
+<p><strong>To:</strong> {{ recepients }}</p>
+<p><strong>From:</strong> {{ message.sender.username }}</p>
+<p><strong>Timestamp:</strong> {{ message.timestamp }}</p>
+<p><strong>Subject:</strong> {{ message.subject }}</p>
+<p><strong>Body:</strong> {{ message.body }}</p>
+
+<a href="{% url 'reply' message.sender.userID %}" class="btn btn-default">Reply</a>
+<a href="{% url 'forward' message.messageID %}" class="btn btn-default">Forward</a>
+</div>
+{% endblock %}
